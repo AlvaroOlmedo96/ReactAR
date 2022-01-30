@@ -5,20 +5,54 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
 	<script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <!-- <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script> -->
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
 </head>
-<body>
-  <a-scene arjs>
+<style>
+  .arjs-loader {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .arjs-loader div {
+    text-align: center;
+    font-size: 1.25em;
+    color: white;
+  }
+</style>
+<body style="margin : 0px; overflow: hidden;">
+
+  <div class="arjs-loader">
+    <div>Loading, please wait...</div>
+  </div>
+
+  <a-scene vr-mode-ui="enabled:false;" arjs>
     <a-marker preset="hiro">
       <a-entity position="0 0 0" scale="0.1 0.1 0.1">
         <a-sphere color="blue" radius="5"></a-sphere>
       </a-entity>
-      <a-entity position="0 0 0" scale="0.1 0.1 0.1">
-        <a-entity position="0" scale="1" gltf-model=""></a-sphere>
-      </a-entity>
     </a-marker>
 
-    <a-camera position="0 0 0"></a-camera>
+    <a-nft
+      type="nft"
+      url="https://www.google.com/url?sa=i&url=https%3A%2F%2Fhistoria.nationalgeographic.com.es%2Fa%2Fmona-lisa-enigmas-obra-maestra-leonardo-da-vinci_12799&psig=AOvVaw3UejH-BKx7x9auCdlC1H91&ust=1643647538623000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCKjZ-bP22fUCFQAAAAAdAAAAABAD"
+      smooth="true"
+      smoothCount="10"
+      smoothTolerance=".01"
+      smoothThreshold="5"
+    >
+      <a-sphere color="red" radius="3"></a-sphere>
+    </a-nft>
+
+    <a-entity camera></a-entity>
   </a-scene>
 </body>
 </html>
